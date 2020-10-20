@@ -1,5 +1,5 @@
 # Code Quiz
-For this assignment, I was tasked with creating a times quiz about coding!
+For this assignment, I was tasked with creating a timed quiz about coding!
 
 
 ## User Story
