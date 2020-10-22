@@ -1,6 +1,8 @@
 // var startBtn = document.querySelector("#startButton");
 var countDown = 75;
-var quizTime;
+var questionIndex = 0;
+// var createDiv = document.createElement("div");
+//     createDiv.setAttribute("id", "createDiv")
 
 // array for questions
 var questions = [
@@ -33,8 +35,61 @@ var questions = [
 
 // function
 
+function startGame(){
+    document.getElementById("Timer").textContent = "Time: " + countDown;
+    document.getElementById("startQuiz").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+    showQuestions()
+}
+
+function showQuestions(){
+    document.getElementById("Question").textContent = questions[0].title;
+    document.getElementById("answer1").textContent = questions[0].choices[0];
+    document.getElementById("answer2").textContent = questions[0].choices[1];
+    document.getElementById("answer3").textContent = questions[0].choices[2];
+    document.getElementById("answer4").textContent = questions[0].choices[3];
+}
+
+
+    
+    
 
 // Event Listener to Start Quiz
 
-// startBtn.addEventListener("click", beginQuiz);
-// console.log("hello")
+document.getElementById("startButton").addEventListener("click", startGame)
+
+// Event Listener to quiz answers
+
+
+document.getElementById("answer1").addEventListener("click", function(){
+    if(questions[0].choices[0] == questions[questionIndex].answer){
+        alert("Correct!");
+    } else {
+        alert("Wrong!");
+
+    }
+})
+document.getElementById("answer2").addEventListener("click", function(){
+    if(questions[0].choices[1] == questions[questionIndex].answer){
+        alert("Correct!");
+    } else {
+        alert("Wrong!");
+
+    }
+})
+document.getElementById("answer3").addEventListener("click", function(){
+    if(questions[0].choices[2] == questions[questionIndex].answer){
+        alert("Correct!");
+    } else {
+        alert("Wrong!");
+
+    }
+})
+document.getElementById("answer4").addEventListener("click", function(){
+    if(questions[0].choices[3] == questions[questionIndex].answer){
+        alert("Correct!");
+    } else {
+        alert("Wrong!");
+
+    }
+})

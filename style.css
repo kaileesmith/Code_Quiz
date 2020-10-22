@@ -4,3 +4,11 @@
         margin-top: 200px;
         
     }
+
+    #qTime{
+        right: 10px!important;
+    }
+
+    #quiz{
+        display: none
+    }
