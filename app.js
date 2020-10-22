@@ -1,8 +1,8 @@
 // var startBtn = document.querySelector("#startButton");
 var countDown = 75;
 var questionIndex = 0;
-// var createDiv = document.createElement("div");
-//     createDiv.setAttribute("id", "createDiv")
+var Score = 0;
+
 
 // array for questions
 var questions = [
@@ -42,6 +42,7 @@ function startGame(){
     showQuestions()
 }
 
+
 function showQuestions(){
     document.getElementById("Question").textContent = questions[0].title;
     document.getElementById("answer1").textContent = questions[0].choices[0];
@@ -50,27 +51,32 @@ function showQuestions(){
     document.getElementById("answer4").textContent = questions[0].choices[3];
 }
 
+//     for (let i = 0; i < questions.length; i++) { 
+// }
+    
+// timer function
 
-    
-    
 
 // Event Listener to Start Quiz
 
 document.getElementById("startButton").addEventListener("click", startGame)
 
 // Event Listener to quiz answers
-
+var createDiv = document.createElement("div");
+document.body.setAttribute("id", createDiv)
 
 document.getElementById("answer1").addEventListener("click", function(){
     if(questions[0].choices[0] == questions[questionIndex].answer){
-        alert("Correct!");
+        
+        createDiv.textContent = "Correct!";
     } else {
-        alert("Wrong!");
+        createDiv.textContent = "Wrong!";
 
     }
 })
 document.getElementById("answer2").addEventListener("click", function(){
     if(questions[0].choices[1] == questions[questionIndex].answer){
+        
         alert("Correct!");
     } else {
         alert("Wrong!");
@@ -79,6 +85,7 @@ document.getElementById("answer2").addEventListener("click", function(){
 })
 document.getElementById("answer3").addEventListener("click", function(){
     if(questions[0].choices[2] == questions[questionIndex].answer){
+        
         alert("Correct!");
     } else {
         alert("Wrong!");
@@ -87,9 +94,12 @@ document.getElementById("answer3").addEventListener("click", function(){
 })
 document.getElementById("answer4").addEventListener("click", function(){
     if(questions[0].choices[3] == questions[questionIndex].answer){
+        
         alert("Correct!");
     } else {
         alert("Wrong!");
 
     }
 })
+
+
