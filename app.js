@@ -1,105 +1,143 @@
 // var startBtn = document.querySelector("#startButton");
-var countDown = 75;
+var timerCount = 75;
 var questionIndex = 0;
 var Score = 0;
+
 
 
 // array for questions
 var questions = [
     {
         title: "Commonly used data types DO NOT include:",
-        choices: ["strings", "booleans", "alerts", "numbers"],
-        answer: "alerts"
+        choices: ["strings", "booleans", "alerts" , "numbers"],
+        answer: "C" 
+        // ALERTS
     },
     {
         title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
         choices: ["Javascript", "terminal / bash", "for loops", "console log"],
-        answer: "console log"
+        answer: "D"
+        // CONSOLE LOG
     },
     {
         title: "The condition in an if / else statement is enclosed within ____.",
         choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses"
+        answer: "C"
+        // parentheses
     },
     {
         title: "String values must be enclosed within ____ when being assigned to variables.",
         choices: ["commas", "curly brackets", "quotes", "parenthesis"],
-        answer: "quotes"
+        answer: "C"
+        // quotes
     },
     {
         title: "Arrays in Javascript can be used to store ____.",
         choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
-        answer: "all of the above"
+        answer: "D"
+        // all of the above
     },
 ];
 
 // function
 
 function startGame(){
-    document.getElementById("Timer").textContent = "Time: " + countDown;
     document.getElementById("startQuiz").style.display = "none";
     document.getElementById("quiz").style.display = "block";
-    showQuestions()
+    showQuestions();
+    
+
 }
+
+
+// function to Show Questions
+var question = document.querySelector("#Question")
+var answer1 = document.querySelector("#answer1")
+var answer2 = document.querySelector("#answer2")
+var answer3 = document.querySelector("#answer3")
+var answer4 = document.querySelector("#answer4")
 
 
 function showQuestions(){
-    document.getElementById("Question").textContent = questions[0].title;
-    document.getElementById("answer1").textContent = questions[0].choices[0];
-    document.getElementById("answer2").textContent = questions[0].choices[1];
-    document.getElementById("answer3").textContent = questions[0].choices[2];
-    document.getElementById("answer4").textContent = questions[0].choices[3];
+    if(questionIndex === questions.length){
+        clearInterval(timer)
+        alert("you are done with " + timerCount + " secs left")
+        return
+    }
+    
+    question.textContent = questions[questionIndex].title
+    answer1.textContent = questions[questionIndex].choices[0]
+    answer2.textContent = questions[questionIndex].choices[1]
+    answer3.textContent = questions[questionIndex].choices[2]
+    answer4.textContent = questions[questionIndex].choices[3]
 }
 
-//     for (let i = 0; i < questions.length; i++) { 
-// }
+showQuestions()
+
+answer1.addEventListener("click", function() {
+    if (answer1.getAttribute("data-answer") === questions[questionIndex].answer) {
+        console.log("correct")
+        questionIndex++
+        showQuestions()
+    } else{
+        console.log("wrong")
+        timerCount -= 10
+}
+});
+
+
+answer2.addEventListener("click", function(){
+    if (answer2.getAttribute("data-answer") === questions[questionIndex].answer){
+        console.log("correct")
+        questionIndex++
+        showQuestions()
+    } else{
+        console.log("wrong")
+        timerCount -= 10
+}
+});
+
+answer3.addEventListener("click", function(){
+    if (answer3.getAttribute("data-answer") === questions[questionIndex].answer){
+        console.log("correct")
+        questionIndex++
+        showQuestions()
+    } else{
+        console.log("wrong")
+        timerCount -= 10
+}
+});
+
+answer4.addEventListener("click", function(){
+    if (answer4.getAttribute("data-answer") === questions[questionIndex].answer){
+        console.log("correct")
+        questionIndex++
+        showQuestions()
+    } else{
+        console.log("wrong")
+        timerCount -= 10
+}
+});
+
+// Timer
+var TimerEl = document.querySelector("#Timer");
+TimerEl.textContent = "Time: " + timerCount;
+
+
+var timer = window.setInterval(function(){
+    timerCount--;
+    TimerEl.textContent = "Time: " + timerCount
+
+    if (timerCount === 0){
+        clearInterval(timer)
+    }
+}, 1000 )
     
-// timer function
-
-
 // Event Listener to Start Quiz
 
 document.getElementById("startButton").addEventListener("click", startGame)
 
+
 // Event Listener to quiz answers
-var createDiv = document.createElement("div");
-document.body.setAttribute("id", createDiv)
-
-document.getElementById("answer1").addEventListener("click", function(){
-    if(questions[0].choices[0] == questions[questionIndex].answer){
-        
-        createDiv.textContent = "Correct!";
-    } else {
-        createDiv.textContent = "Wrong!";
-
-    }
-})
-document.getElementById("answer2").addEventListener("click", function(){
-    if(questions[0].choices[1] == questions[questionIndex].answer){
-        
-        alert("Correct!");
-    } else {
-        alert("Wrong!");
-
-    }
-})
-document.getElementById("answer3").addEventListener("click", function(){
-    if(questions[0].choices[2] == questions[questionIndex].answer){
-        
-        alert("Correct!");
-    } else {
-        alert("Wrong!");
-
-    }
-})
-document.getElementById("answer4").addEventListener("click", function(){
-    if(questions[0].choices[3] == questions[questionIndex].answer){
-        
-        alert("Correct!");
-    } else {
-        alert("Wrong!");
-
-    }
-})
-
-
+// var createDiv = document.createElement("div");
+// document.body.setAttribute("id", createDiv)

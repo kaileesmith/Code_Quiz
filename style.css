@@ -6,7 +6,7 @@
     }
 
     #qTime{
-        right: 10px!important;
+        float: right!important;
     }
 
     #quiz{
