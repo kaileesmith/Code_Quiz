@@ -10,9 +10,24 @@
     }
 
     #quiz{
-        display: none
+        display: none;
+        margin-left: 350px;
+        margin-top: 200px;
+        
     }
 
     #buttons{
         margin-top: 50px;
     }
+
+    #Highscores{
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #userintials{
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    

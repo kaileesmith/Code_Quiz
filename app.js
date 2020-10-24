@@ -5,7 +5,6 @@ var Score = 0;
 
 gameEnd();
 
-
 // array for questions
 var questions = [
     {
@@ -56,6 +55,7 @@ function gameEnd(){
     document.getElementById("Highscores").style.display = "none";
     }
 
+
 // function to Show Questions
 var question = document.querySelector("#Question")
 var answer1 = document.querySelector("#answer1")
@@ -69,10 +69,14 @@ function showQuestions(){
         clearInterval(timer)
         alert("Your Score is " + timerCount);
         document.getElementById("quiz").style.display = "none";
-        document.getElementById("Highscores").style.display = "block"
+        document.getElementById("Highscores").style.display = "block";
+        $('p').text("Score: " + timerCount);
+        var Score = JSON.stringify(localStorage.setItem("Final Score", timerCount));
         return
     }
     
+
+
     question.textContent = questions[questionIndex].title
     answer1.textContent = questions[questionIndex].choices[0]
     answer2.textContent = questions[questionIndex].choices[1]
@@ -84,11 +88,11 @@ showQuestions()
 
 answer1.addEventListener("click", function() {
     if (answer1.getAttribute("data-answer") === questions[questionIndex].answer) {
-        console.log("correct")
+        alert("correct")
         questionIndex++
         showQuestions()
     } else{
-        console.log("wrong")
+        alert("wrong")
         timerCount -= 10
 }
 });
@@ -96,33 +100,33 @@ answer1.addEventListener("click", function() {
 
 answer2.addEventListener("click", function(){
     if (answer2.getAttribute("data-answer") === questions[questionIndex].answer){
-        console.log("correct")
+        alert("correct")
         questionIndex++
         showQuestions()
     } else{
-        console.log("wrong")
+        alert("wrong")
         timerCount -= 10
 }
 });
 
 answer3.addEventListener("click", function(){
     if (answer3.getAttribute("data-answer") === questions[questionIndex].answer){
-        console.log("correct")
+        alert("correct")
         questionIndex++
         showQuestions()
     } else{
-        console.log("wrong")
+        alert("wrong")
         timerCount -= 10
 }
 });
 
 answer4.addEventListener("click", function(){
     if (answer4.getAttribute("data-answer") === questions[questionIndex].answer){
-        console.log("correct")
+        alert("correct")
         questionIndex++
         showQuestions()
     } else{
-        console.log("wrong")
+        alert("wrong")
         timerCount -= 10
 }
 });
@@ -147,6 +151,8 @@ function startTimer(){
 document.getElementById("startButton").addEventListener("click", startGame)
 
 //End of Game 
+
+
 // function gameEnd(){
 // document.getElementById("GameEnd").style.display = "none";
 // }

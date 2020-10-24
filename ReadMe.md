@@ -27,3 +27,10 @@ WHEN the game is over
 THEN I can save my initials and score
 ```
 
+## Example of Start Screen
+
+![example startscreen](./startscreen.JPG)
+
+
+## Link to Deployed Application
+[Click Here!]
