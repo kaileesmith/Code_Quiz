@@ -33,4 +33,4 @@ THEN I can save my initials and score
 
 
 ## Link to Deployed Application
-[Click Here!]
+[Click Here!](https://kaileesmith.github.io/Code_Quiz/)
