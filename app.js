@@ -3,6 +3,7 @@ var timerCount = 75;
 var questionIndex = 0;
 var Score = 0;
 
+gameEnd();
 
 
 // array for questions
@@ -41,14 +42,19 @@ var questions = [
 
 // function
 
+
 function startGame(){
     document.getElementById("startQuiz").style.display = "none";
     document.getElementById("quiz").style.display = "block";
     showQuestions();
+    startTimer();
     
 
 }
 
+function gameEnd(){
+    document.getElementById("Highscores").style.display = "none";
+    }
 
 // function to Show Questions
 var question = document.querySelector("#Question")
@@ -59,9 +65,11 @@ var answer4 = document.querySelector("#answer4")
 
 
 function showQuestions(){
-    if(questionIndex === questions.length){
+    if(questionIndex === questions.length || timerCount === 0){
         clearInterval(timer)
-        alert("you are done with " + timerCount + " secs left")
+        alert("Your Score is " + timerCount);
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("Highscores").style.display = "block"
         return
     }
     
@@ -123,21 +131,25 @@ answer4.addEventListener("click", function(){
 var TimerEl = document.querySelector("#Timer");
 TimerEl.textContent = "Time: " + timerCount;
 
+var timer;
 
-var timer = window.setInterval(function(){
+function startTimer(){
+    timer = window.setInterval(function(){
     timerCount--;
     TimerEl.textContent = "Time: " + timerCount
 
     if (timerCount === 0){
         clearInterval(timer)
     }
-}, 1000 )
-    
+}, 1000 )}
 // Event Listener to Start Quiz
 
 document.getElementById("startButton").addEventListener("click", startGame)
 
-
+//End of Game 
+// function gameEnd(){
+// document.getElementById("GameEnd").style.display = "none";
+// }
 // Event Listener to quiz answers
 // var createDiv = document.createElement("div");
 // document.body.setAttribute("id", createDiv)
