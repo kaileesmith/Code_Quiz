@@ -29,8 +29,21 @@ THEN I can save my initials and score
 
 ## Example of Start Screen
 
-![example startscreen](./startscreen.JPG)
+![example startscreen](./images/startscreen.JPG)
+
+## Example of Question Screen
+
+![example startscreen](./images/question_screenshot.JPG)
 
 
 ## Link to Deployed Application
 [Click Here!](https://kaileesmith.github.io/Code_Quiz/)
+
+## Technologies Used
+```
+HTML
+CSS
+Javasript
+JQuery
+```
+## MIT Licensed
